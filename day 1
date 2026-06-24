@@ -1,4 +1,5 @@
-//1
+//(1)
+//Right Triangle Star Pattern
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,7 +17,8 @@ int main() {
     return 0;
 }
 
-//2
+//(2)
+//Inverted Right Triangle Star Pattern
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -35,7 +37,8 @@ int main() {
     return 0;
 }
 
-  //3
+//(3)
+//Number Triangle Pattern
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -57,7 +60,9 @@ int main() {
     return 0;
 }
 
-  //4
+//(4)
+//GCD of Two Numbers using Euclidean Algorithm
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -74,7 +79,8 @@ int main(){
     cout<<gcd(12,8);
 }
 
-  //5
+//(5)
+//Count Digits in a Number
   
 
 
@@ -101,7 +107,8 @@ int main(){
     cout<<digit(12345);
 }
 
- // 6
+// (6)
+//Sum of Digits of a Number
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -128,8 +135,8 @@ int main(){
     cout<<digit(1234);
 }
 
-  //7
-
+//(7)
+// Sum of First N Natural Numbers using Recursion
 #include <bits/stdc++.h>
 using namespace std;
 int sum(int n){
@@ -142,7 +149,8 @@ int main() {
     cout<<sum(3);
 }
 
- // 8
+// (8)
+//Factorial of a Number using Recursion
 
 #include <bits/stdc++.h>
 using namespace std;
