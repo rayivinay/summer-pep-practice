@@ -1,0 +1,159 @@
+//1
+#include <bits/stdc++.h>
+using namespace std;
+
+void print() {
+    for(int i = 1; i <= 4; i++) {
+        for(int j = 1; j <= i; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    print();
+    return 0;
+}
+
+//2
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void print() {
+    for(int i = 4; i >= 1; i--) {
+        for(int j = 0; j < i; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    print();
+    return 0;
+}
+
+  //3
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void print() {
+    int num = 1;
+
+    for(int i = 1; i <= 4; i++) {
+        for(int j = 0; j < i; j++) {
+            cout << num << " ";
+            num++;
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    print();
+    return 0;
+}
+
+  //4
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int gcd(int a,int b){
+    while(b!=0){
+        int rem = a%b;
+        a = b;
+        b = rem;
+    }
+    return a;
+}
+int main(){
+    cout<<gcd(12,8);
+}
+
+  //5
+  
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int gcd(int a,int b){
+    while(b!=0){
+        int rem = a%b;
+        a = b;
+        b = rem;
+    }
+    return a;
+}
+int digit(int num){
+    int count =0;
+    while(num!=0){
+        num =num/10;
+        count++;
+    }
+    return count;
+}
+int main(){
+    cout<<digit(12345);
+}
+
+ // 6
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int gcd(int a,int b){
+    while(b!=0){
+        int rem = a%b;
+        a = b;
+        b = rem;
+    }
+    return a;
+}
+int digit(int num){
+    int add =0;
+    int count =0;
+    while(num!=0){
+        add += num%10;
+        num =num/10;
+    }
+    return add;
+}
+int main(){
+    
+    cout<<digit(1234);
+}
+
+  //7
+
+#include <bits/stdc++.h>
+using namespace std;
+int sum(int n){
+    if(n == 1){
+        return 1;
+    }
+    return n + sum(n-1);
+}
+int main() {
+    cout<<sum(3);
+}
+
+ // 8
+
+#include <bits/stdc++.h>
+using namespace std;
+int mul(int n){
+    if(n == 1){
+        return 1;
+    }
+    return n * mul(n-1);
+}
+int main() {
+    cout<<mul(5);
+}
+
+
