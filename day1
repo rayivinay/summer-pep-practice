@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool ispalindrome(string s, int l, int r)
+{
+    if (l >= r)
+        return true;
+
+    if (s[l] != s[r])
+        return false;
+
+    return ispalindrome(s, l + 1, r - 1);
+}
+
+int main()
+{
+    string s;
+    cin >> s;
+
+    if (ispalindrome(s, 0, s.size() - 1))
+        cout << "Palindrome";
+    else
+        cout << "Not Palindrome";
+
+    return 0;
+}
