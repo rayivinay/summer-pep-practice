@@ -97,3 +97,53 @@ int main() {
     return 0;
 }
 
+//(6)
+//Vowels and consonants counting program
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    string s = "Lovely Professional University";
+    int v=0,c=0;
+    for(int i=0;i<s.length(); i++)
+    {
+        if(s[i]=='a' || s[i]=='e' || s[i]=='i' || s[i]=='o' || s[i]=='u' ||
+           s[i]=='A' || s[i]=='E' || s[i]=='I' || s[i]=='O' || s[i]=='U') 
+           {
+               v++;
+               
+           }
+           else{
+               c++;
+               
+           }
+        
+    }
+
+    cout<<"Vowels="<<v<<endl;
+    cout<<"Consonants="<<c<<endl;
+    return 0;
+}
+
+
+//(7)
+//linear search in while loop and vector
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    vector<int> v = {7, -1, 2, 4, 3};
+    int t=7;
+    int i=0;
+    while(i< v.size()){
+        if (v[i] == t){
+            cout << i;
+            return 0;
+        }
+        i++;
+    }
+    cout<<"not found";
+    return 0;
+}
