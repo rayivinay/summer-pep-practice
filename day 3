@@ -1,1 +1,96 @@
 //(1)
+// bianry searc using recursion
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int bs(vector<int> v, int target, int s, int e)
+{
+    if(s > e)
+        return -1;
+
+    int mid = (s + e) / 2;
+
+    if(v[mid] == target)
+        return mid;
+
+    int left = bs(v, target, s, mid - 1);
+    int right = bs(v, target, mid + 1, e);
+
+    if(left != -1)
+        return left;
+
+    return right;
+}
+
+int main()
+{
+    vector<int> v = {5, 6, 7, 8, 9};
+    int target = 8;
+
+    cout << bs(v, target, 0, v.size() - 1);
+
+    return 0;
+}
+
+//(2)
+//armstrong number
+
+#include <bits/stdc++.h>
+using namespace std;
+int digit(int n)
+{
+    int count = 0;
+    while(n > 0)
+    {
+        count++;
+        n /=10;
+    }
+    return count;
+}
+
+bool check(int n){
+    int sum =0;
+    int d = digit(n);
+    int num = n;
+    while(num>0){
+        int a = num%10;
+        sum+= pow(a,d),
+        num /= 10;
+    }
+    if(sum ==n) return 1;
+    else return 0;
+}
+int main() {
+    cout<<check(153);
+}
+
+//(3)
+//LinkedList Traversal(in geeksforgeeks)
+
+
+/*
+class Node {
+  public:
+    int data;
+    Node* next;
+
+    Node(int val) {
+        data = val;
+        next = NULL;
+    }
+};
+*/
+
+class Solution {
+  public:
+    void printList(Node* head) {
+       if(head == NULL){
+           return;
+           
+       }
+       cout << head->data << " ";
+       printList(head->next);
+        
+    }
+};
