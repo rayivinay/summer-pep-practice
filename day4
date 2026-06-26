@@ -94,3 +94,138 @@ class Solution {
     return head;
     }
 };
+
+
+
+//(4)
+//Delete in a Singly Linked List
+
+
+/*
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int data) {
+        this->data = data;
+        this->next = nullptr;
+    }
+};
+*/
+class Solution {
+  public:
+    Node* deleteNode(Node* head, int x) {
+        if (head == NULL)
+            return NULL;
+        if (x == 1) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            return head;
+        }
+        head->next = deleteNode(head->next, x - 1);
+        return head;
+    }
+};
+
+
+
+//(5)
+//Delete Head of Linked List
+
+
+/*
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+
+*/
+class Solution {
+  public:
+    Node *deleteHead(Node *head) {
+        // code here
+        return head=head->next;
+    }
+};
+
+
+
+
+
+//(6)
+//Deletion at the end of a Linked Lis
+
+/*
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+*/
+class Solution {
+  public:
+    Node* removeLastNode(Node* head) {
+        if(head->next == NULL) {
+            delete head;
+            return NULL;
+        }
+        if(head->next->next == NULL) {
+            delete head->next;
+            head->next = NULL;
+            return head;
+        }
+        head->next = removeLastNode(head->next);
+        return head;
+    }
+};
+
+
+
+
+//(7)
+//Reverse a linked lis
+
+/*
+class Node {
+ public:
+    int data ;
+    Node *next ;
+
+    Node(int x) {
+        data = x ;
+        next = nullptr ;
+    }
+};
+*/
+
+class Solution {
+  public:
+    Node* reverseList(Node* head) {
+        // code here
+        if(head==NULL) return null;
+        Node * reverseList(head->next);
+        Node* temp->head;
+        head->next=NULL;
+        return res;
+    }
+};
+
+
+
+//(8)
+//
+
+
+
