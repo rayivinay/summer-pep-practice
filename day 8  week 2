@@ -1,0 +1,16 @@
+//this is questions in (geeks for geeks) platfrom
+// 1
+// Queue Traversal
+
+class Solution {
+  public:
+    vector<int> queueTraversal(queue<int>& q) {
+        // code here
+        vector<int> a;
+        while(!q.empty()){
+            a.push_back(q.front());
+            q.pop();
+        }
+        return a;
+    }
+};
