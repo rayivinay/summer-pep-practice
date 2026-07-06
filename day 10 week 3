@@ -1,0 +1,141 @@
+//linked listcycle
+//leatcode
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if (!head || !head->next) return false;
+
+        ListNode *slow = head, *fast = head;
+
+        while (fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast) return true;
+        }
+        return false;
+    }
+};
+
+//jump game
+//leatcodeclass Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int m = 0;
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            if(m>=n-1) return 1;
+            if(i>m) return 0;
+            m=max(m,i+nums[i]);
+        }
+        return 1;
+    }
+};
+
+//Max Sum Subarray of size K
+//geeksforgeeks
+
+class Solution {
+  public:
+    int maxSubarraySum(vector<int>& arr, int k) {
+        
+        int n=arr.size();
+        int i=0,j=0;
+        int sum=0,mx=0;
+        while(j<n){
+            
+            sum+=arr[j];
+            
+            if(j-i+1<k) j++;
+            else if (j-i+1==k){
+                
+                mx=max(mx,sum);
+                
+                sum-=arr[i];
+                
+                j++;i++;
+                
+                
+            }
+            
+            
+    
+        }
+        return mx;
+        
+    }
+};
+
+
+//First Negative in Windows of Size K
+//geeksforgeeks
+
+class Solution {
+  public:
+    vector<int> firstNegInt(vector<int>& arr, int k) {
+       int n=arr.size();
+       int i=0,j=0;
+       queue<int>q;
+       
+       vector<int>ans;
+       while(j<n){
+           if(arr[j]<0) q.push(arr[j]);
+           
+           if(j-i+1<k) j++;
+           else if (j-i+1==k){
+               
+               if(!q.empty()){
+                   int f=q.front();
+                   ans.push_back(f);
+                   
+                   if(arr[i]==f)q.pop();
+                   
+               }
+               else ans.push_back(0);
+                i++;j++;
+           }
+           
+       }
+       return ans;
+    }
+};
+
+//write a programm to swap 2 numberswithout using third variable
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void swapnum(int a, int b){
+    a = a + b;
+	b = a - b;
+	a = a - b;
+}
+
+int main() {
+    int a=10;
+    int b=5;
+    swapnum(a,b);
+    cout<<a <<" "<<b;
+}
+
+// 141. Linked List Cycle
+// leatcode
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode *slow = head;
+        ListNode *fast = head;
+
+        while(fast!=NULL and fast->next!=NULL){
+            fast=fast->next->next;
+            slow=slow->next;
+            if(fast==slow) return -1;
+        }
+        return 0;
+    }
+};
+
+//LinkedList Traversal
+//geeksforgeeks
+
