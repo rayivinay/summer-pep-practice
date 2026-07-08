@@ -1,0 +1,41 @@
+// insertion sort
+//geeks for geeks
+
+class Solution {
+  public:
+    void insertionSort(vector<int>& arr) {
+        // code here
+        int n=arr.size();
+        for(int i=1;i<n;i++){
+            int x=arr[i];
+            int j=i-1;
+            while(j>=0 and x<arr[j]){
+                arr[j+1]=arr[j];
+                j--;
+            }
+            arr[j+1]=x;
+        }
+    }
+};
+
+//selection sort
+//geeks for geeks
+
+class Solution {
+  public:
+    void selectionSort(vector<int> &arr) {
+        // code here
+         int n=arr.size();
+        for(int i=0;i<n-1;i++){
+            int minindex=i;
+            for(int j=i+1;j<n;j++){
+                if(arr[minindex]>arr[j]){
+                    minindex=j;
+                }
+            }
+            swap(arr[minindex],arr[i]);
+        }
+        
+    }
+};
+
