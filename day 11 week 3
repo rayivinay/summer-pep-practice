@@ -1,0 +1,97 @@
+//leatcode problems
+//Merge Sorted Array
+
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int> nums(m + n);
+
+        int i = 0, j = 0, k = 0;
+
+        while (i < m && j < n) {
+            if (nums1[i] <= nums2[j]) {
+                nums[k++] = nums1[i++];
+            } else {
+                nums[k++] = nums2[j++];
+            }
+        }
+
+        while (i < m) {
+            nums[k++] = nums1[i++];
+        }
+
+        while (j < n) {
+            nums[k++] = nums2[j++];
+        }
+
+        nums1 = nums;
+    }
+};
+
+
+//3Sum
+
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> res;
+        sort(nums.begin(), nums.end());
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (i > 0 && nums[i] == nums[i-1]) {
+                continue;
+            }
+            
+            int j = i + 1;
+            int k = nums.size() - 1;
+
+            while (j < k) {
+                int total = nums[i] + nums[j] + nums[k];
+
+                if (total > 0) {
+                    k--;
+                } else if (total < 0) {
+                    j++;
+                } else {
+                    res.push_back({nums[i], nums[j], nums[k]});
+                    j++;
+
+                    while (nums[j] == nums[j-1] && j < k) {
+                        j++;
+                    }
+                }
+            }
+        }
+        return res;        
+    }
+};
+
+
+//Power of Two
+
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        return n > 0 && (n & (n - 1)) == 0;
+    }
+};
+
+
+//Reverse String
+
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+
+        int start = 0;
+        int end = s.size() - 1;
+
+        while(start <= end){
+
+            swap(s[start], s[end]);
+
+            start++;
+            end--;
+        }
+    }
+};
