@@ -1,0 +1,186 @@
+
+Rat in a MAZE
+
+
+class Solution {
+  public:
+    
+    vector<string> ans;
+    
+    void  travel(vector<vector<int>>&maze, int n,int i, int j , string psf){
+        
+        if(i<0 || j<0 || i>=n || j>=n ||maze[i][j]==0) return;
+        
+        if(i==n-1 and j == n-1){
+            ans.push_back(psf);
+            return;
+        } 
+        
+        maze[i][j]=0;
+        
+        travel(maze,n,i+1,j,psf+"D");
+        travel(maze,n,i,j-1,psf+"L");
+        travel(maze,n,i,j+1,psf+"R");
+        travel(maze,n,i-1,j,psf+"U");
+        
+        maze[i][j]=1;
+        
+    }
+    
+    vector<string> ratInMaze(vector<vector<int>>& maze) {
+        ans.clear();
+        int n = maze.size();
+        travel(maze,n,0,0,"");
+        
+        return ans;
+    }
+};
+
+
+
+
+
+
+Target Sum Combinations gfg
+
+
+class Solution {
+  public:
+  
+    vector<vector<int>> ans;
+    
+    vector<int> psf;
+    
+    void helper(vector<int> &arr, int target, vector<int> psf,int start){
+        
+        if(target<0) return;
+        if(target==0){
+            ans.push_back(psf);
+            return;
+        }
+        
+        
+        for(int i=start; i<arr.size(); i++){
+            
+            psf.push_back(arr[i]);
+            helper(arr,target-arr[i],psf,i);
+            psf.pop_back();
+            
+        }
+        
+    }
+    vector<vector<int>> targetSumComb(vector<int> &arr, int target) {
+     
+        ans.clear();
+        helper(arr,target,{},0);
+        return ans;
+        
+    }
+};
+
+
+
+N-Queen Problem
+
+
+
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    vector<vector<int>> ans;
+    vector<bool> ld;
+    vector<bool> rd;
+    vector<bool> col;
+
+    void helper(int n, vector<int>& psf, int i) {
+        if (i == n) {
+            ans.push_back(psf);
+            return;
+        }
+        for (int j = 0; j < n; j++) {
+            if (col[j] == false && ld[i + j] == false && rd[i-j+n-1] == false) {
+                col[j] = true;
+                ld[i + j] = true;
+                rd[i - j + n - 1] = true;
+                psf.push_back(j + 1);
+                
+                helper(n, psf, i + 1);
+                
+                psf.pop_back();
+                col[j] = false;
+                ld[i+j] = false;
+                rd[i-j+n-1] = false;
+            }
+        }
+    }
+
+    vector<vector<int>> nQueen(int n) {
+
+        ans.clear();
+        
+        ld = vector<bool>(2*n-1, false);
+        rd = vector<bool>(2*n-1, false);
+        col = vector<bool>(n, false);
+        
+        vector<int> psf;
+        helper(n, psf, 0);
+        return ans;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Distinct Permutation 
+
+class Solution {
+  public:
+    vector<string> ans;
+    
+    void helper(string &s, int n, string ssf,vector<bool> visited){
+        if(ssf.size()==n){
+            ans.push_back(ssf);
+            return;
+        }
+        for(int i = 0; i < n; i++){
+            if(visited[i]==false){
+                if(i>0 and s[i]==s[i-1] and visited[i-1]==1) continue;
+                visited[i]=true;
+                helper(s,n,ssf+s[i],visited);
+                visited[i]=false;
+            }
+        }
+    }
+    
+    vector<string> findPermutation(string &s) {
+        // Code here
+        int n = s.size();
+        vector<bool> visited(n,false);
+        sort(s.begin(), s.end());
+        helper(s,n,"",visited);
+        
+        return ans;
+        
+    }
+};
+
+
