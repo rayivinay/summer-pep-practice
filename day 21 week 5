@@ -1,0 +1,60 @@
+Priority Queue
+
+K Largest Elements  GFG
+
+class Solution {
+  public:
+    vector<int> kLargest(vector<int>& arr, int k) {
+        // code here
+        priority_queue<int, vector<int>, greater<int>> pq;
+        int n = arr.size();
+        for(int i=0; i<n; i++){
+            pq.push(arr[i]);
+            if(pq.size()>k){
+                pq.pop();
+            }
+        }
+        vector<int> ans;
+        for(int i=0; i<k; i++){
+            int a = pq.top();
+            pq.pop();
+            ans.push_back(a);
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
+
+
+//
+
+Nearly sorted  gfg
+
+
+
+class Solution {
+  public:
+    void nearlySorted(vector<int>& arr, int k) {
+        // code here
+        priority_queue<int, vector<int>, greater<int>> pq;
+            
+        int n = arr.size();
+        int ind = 0;
+        for(int i=0; i<n; i++){
+            pq.push(arr[i]);
+            if(pq.size() > k) {
+                arr[ind] = pq.top();
+                pq.pop();
+                ind++;
+            }
+        }
+         
+        while(!pq.empty()) {
+            arr[ind] = pq.top();
+            pq.pop();
+            ind++;
+        }
+    }
+};
+
+
